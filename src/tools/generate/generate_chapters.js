@@ -3,10 +3,11 @@ const showdown = require('showdown');
 const ejs = require('ejs');
 const prettier = require('prettier');
 
-const { find_markdown_files, get_yearly_configs, size_of, parse_array } = require('./shared');
+const { convertSimpleMarkdown, find_markdown_files, get_yearly_configs, size_of, parse_array } = require('./shared');
 const { generate_table_of_contents } = require('./generate_table_of_contents');
 const { generate_header_links } = require('./generate_header_links');
 const { generate_figure_ids } = require('./generate_figure_ids');
+const { generate_typographic_punctuation_body, generate_typographic_punctuation_metadata } = require('./generate_typographic_punctuation');
 const { generate_featured_chapters, generate_chapter_featured_quote } = require('./generate_featured_chapters');
 const { generate_sitemap } = require('./generate_sitemap');
 const { lazy_load_content } = require('./lazy_load_content');
@@ -142,7 +143,7 @@ const parse_file = async (markdown,chapter) => {
   const html = converter.makeHtml(markdown);
   let body = html;
 
-  const m = converter.getMetadata();
+  let m = converter.getMetadata();
   body = generate_syntax_highlighting(body);
   body = generate_header_links(body);
   body = generate_figure_ids(body);
@@ -150,11 +151,24 @@ const parse_file = async (markdown,chapter) => {
   body = generate_table_figure_dropdowns(body);
   body = lazy_load_content(body);
   body = remove_unnecessary_markup(body);
+  body = generate_typographic_punctuation_body(body);
+  m = generate_typographic_punctuation_metadata(m);
   const toc = generate_table_of_contents(body);
 
   const chapter_number = Number(m.chapter_number);
   const authors = parse_array(m.authors);
   const reviewers = parse_array(m.reviewers);
+
+  if (authors && authors.length > 0) {
+    authors.forEach((author) => {
+      const author_bio_name = author + '_bio';
+      const author_bio_value = m[author_bio_name];
+      if (author_bio_value) {
+        m[author_bio_name] = convertSimpleMarkdown(author_bio_value);
+      }
+    });
+  }
+
   let translators;
   if (m.translators) {
     translators = parse_array(m.translators);

@@ -46,6 +46,12 @@ def render_template(template, *args, **kwargs):
         if os.path.isfile(year_lang_template):
             template_supported_years.append(y)
 
+    en_supported_years = []
+    for y in supported_years:
+        year_en_template = TEMPLATES_DIR + '/en/%s/%s' % (y, template[langcode_length + 1 + 4:])
+        if os.path.isfile(year_en_template):
+            en_supported_years.append(y)
+
     date_published = get_file_date_info(template, "date_published")
     date_modified = get_file_date_info(template, "date_modified")
     ebook_size_in_mb = get_ebook_size_in_mb(lang, year)
@@ -54,7 +60,8 @@ def render_template(template, *args, **kwargs):
     kwargs.update(year=year, lang=lang, language=language, supported_languages=template_supported_languages,
                   supported_years=template_supported_years, all_supported_years=SUPPORTED_YEARS,
                   supported_chapters=supported_chapters, date_published=date_published, date_modified=date_modified,
-                  ebook_size_in_mb=ebook_size_in_mb, get_file_date_info=get_file_date_info, config=config)
+                  ebook_size_in_mb=ebook_size_in_mb, get_file_date_info=get_file_date_info, config=config,
+                  plural_ru=plural_ru, DEFAULT_YEAR=DEFAULT_YEAR, en_supported_years=en_supported_years)
     return flask_render_template(template, *args, **kwargs)
 
 
@@ -113,6 +120,16 @@ def get_chapter_nextprev(config, chapter_slug):
         return (None, None)
 
     return prev_chapter, next_chapter
+
+
+def get_chapter_config(config, chapter_slug):
+
+    for part in config['outline']:
+        for chapter in part['chapters']:
+            if chapter.get('slug') == chapter_slug:
+                return chapter
+
+    return None
 
 
 def get_view_args(lang=None, year=None):
@@ -220,6 +237,18 @@ def get_versioned_filename(path):
 def get_ebook_size_in_mb(lang, year):
     ebook_file = '/static/pdfs/web_almanac_%s_%s.pdf' % (year, lang)
     return int(get_file_date_info(ebook_file, 'size') or 0)
+
+
+def plural_ru(value, quantitative):
+    # Handle Russian plurals
+    # Based on https://github.com/andrewp-as-is/plural-ru.py
+    if value % 100 in (11, 12, 13, 14):
+        return quantitative[2]
+    if value % 10 == 1:
+        return quantitative[0]
+    if value % 10 in (2, 3, 4):
+        return quantitative[1]
+    return quantitative[2]
 
 
 class RegexConverter(BaseConverter):

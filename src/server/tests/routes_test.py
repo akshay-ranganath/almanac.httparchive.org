@@ -104,6 +104,23 @@ def test_render_en_accessibility_statement_slash(client):
     assert_route(client, '/en/accessibility-statement/', 301, '/en/accessibility-statement')
 
 
+def test_render_search(client):
+    response = client.get('/en/search')
+    assert response.status_code == 200
+
+
+def test_render_search_slash(client):
+    assert_route(client, '/en/search/', 301, '/en/search')
+
+
+def test_render_search_year(client):
+    assert_route(client, '/en/2020/search', 301, '/en/search')
+
+
+def test_render_search_year_slash(client):
+    assert_route(client, '/en/2020/search/', 301, '/en/search')
+
+
 def test_render_sitemap(client):
     assert_route(client, '/sitemap.xml', 200)
 
@@ -134,6 +151,14 @@ def test_render_en_2019_ebook(client):
 
 def test_render_old_image_dir_redirect(client):
     assert_route(client, '/static/images/2019/20_HTTP2/random.png', 301, '/static/images/2019/http2/random.png')
+
+
+def test_render_old_hero_image_dir_redirect(client):
+    assert_route(client, '/static/images/2019/jamstack/random.png', 301, '/static/images/2020/jamstack/random.png')
+
+
+def test_rold_css_redirect(client):
+    assert_route(client, '/static/css/2019.css?v=2', 301, '/static/css/almanac.css?v=2')
 
 
 def test_render_en_2020_story(client):

@@ -2,7 +2,7 @@
   "settings": [
     {
       "is_live": true,
-      "supported_languages": ["en","es","fr","hi","it","ja","nl","pt","ru","zh-CN","zh-TW"],
+      "supported_languages": ["en","es","fr","hi","it","ja","nl","pt","ru","tr","uk","zh-CN","zh-TW"],
       "ebook_languages": ["en","ja"]
     }
   ],
@@ -13,37 +13,37 @@
       "chapters": [
         {
           "part": "I",
-          "chapter": "1",
+          "chapter_number": "1",
           "title": "JavaScript",
           "slug": "javascript"
         },
         {
           "part": "I",
-          "chapter": "2",
+          "chapter_number": "2",
           "title": "CSS",
           "slug": "css"
         },
         {
           "part": "I",
-          "chapter": "3",
+          "chapter_number": "3",
           "title": "Markup",
           "slug": "markup"
         },
         {
           "part": "I",
-          "chapter": "4",
+          "chapter_number": "4",
           "title": "Media",
           "slug": "media"
         },
         {
           "part": "I",
-          "chapter": "5",
+          "chapter_number": "5",
           "title": "Third Parties",
           "slug": "third-parties"
         },
         {
           "part": "I",
-          "chapter": "6",
+          "chapter_number": "6",
           "title": "Fonts",
           "slug": "fonts"
         }
@@ -55,37 +55,37 @@
       "chapters": [
         {
           "part": "II",
-          "chapter": "7",
+          "chapter_number": "7",
           "title": "Performance",
           "slug": "performance"
         },
         {
           "part": "II",
-          "chapter": "8",
+          "chapter_number": "8",
           "title": "Security",
           "slug": "security"
         },
         {
           "part": "II",
-          "chapter": "9",
+          "chapter_number": "9",
           "title": "Accessibility",
           "slug": "accessibility"
         },
         {
           "part": "II",
-          "chapter": "10",
+          "chapter_number": "10",
           "title": "SEO",
           "slug": "seo"
         },
         {
           "part": "II",
-          "chapter": "11",
+          "chapter_number": "11",
           "title": "PWA",
           "slug": "pwa"
         },
         {
           "part": "II",
-          "chapter": "12",
+          "chapter_number": "12",
           "title": "Mobile Web",
           "slug": "mobile-web"
         }
@@ -97,13 +97,13 @@
       "chapters": [
         {
           "part": "III",
-          "chapter": "13",
+          "chapter_number": "13",
           "title": "Ecommerce",
           "slug": "ecommerce"
         },
         {
           "part": "III",
-          "chapter": "14",
+          "chapter_number": "14",
           "title": "CMS",
           "slug": "cms"
         }
@@ -115,37 +115,37 @@
       "chapters": [
         {
           "part": "IV",
-          "chapter": "15",
+          "chapter_number": "15",
           "title": "Compression",
           "slug": "compression"
         },
         {
           "part": "IV",
-          "chapter": "16",
+          "chapter_number": "16",
           "title": "Caching",
           "slug": "caching"
         },
         {
           "part": "IV",
-          "chapter": "17",
+          "chapter_number": "17",
           "title": "CDN",
           "slug": "cdn"
         },
         {
           "part": "IV",
-          "chapter": "18",
+          "chapter_number": "18",
           "title": "Page Weight",
           "slug": "page-weight"
         },
         {
           "part": "IV",
-          "chapter": "19",
+          "chapter_number": "19",
           "title": "Resource Hints",
           "slug": "resource-hints"
         },
         {
           "part": "IV",
-          "chapter": "20",
+          "chapter_number": "20",
           "title": "HTTP/2",
           "slug": "http2"
         }
@@ -325,6 +325,15 @@
       "github": "andydavies",
       "twitter": "AndyDavies"
     },
+    "arigaud-ca": {
+      "name": "Arthur Rigaud",
+      "teams": [
+        "translators"
+      ],
+      "avatar_url": "https://avatars2.githubusercontent.com/u/50932885?v=4&s=200",
+      "github": "arigaud-ca",
+      "twitter": "arigaud_ca"
+    },
     "arturjanc": {
       "name": "Artur Janc",
       "teams": [
@@ -346,7 +355,7 @@
       "github": "AymenLoukil",
       "twitter": "LoukilAymen"
     },
-    "bazzadp": {
+    "tunetheweb": {
       "name": "Barry Pollard",
       "teams": [
         "brainstormers",
@@ -357,8 +366,8 @@
       ],
       "avatar_url": "https://avatars3.githubusercontent.com/u/10931297?v=4&s=200",
       "website": "https://www.tunetheweb.com",
-      "github": "bazzadp",
-      "linkedin": "barry-pollard-developer",
+      "github": "tunetheweb",
+      "linkedin": "tunetheweb",
       "twitter": "tunetheweb"
     },
     "borisschapira": {
@@ -539,6 +548,16 @@
       "github": "enygren",
       "twitter": "akanygren"
     },
+    "fatmabadri": {
+      "name": "Fatma Badri",
+      "teams": [
+        "translators"
+      ],
+      "avatar_url": "https://avatars.githubusercontent.com/u/10557131?v=4s=200",
+      "website": "https://fatmabadri.github.io/",
+      "github": "fatmabadri",
+      "linkedin": "fatmabadri"
+    },
     "gabriel-de-gennaro": {
       "name": "Gabriel De Gennaro",
       "teams": [
@@ -695,6 +714,15 @@
       "github": "KJLarson",
       "twitter": "KaJLa47"
     },
+    "tymosh": {
+      "name": "Kate Tymoshkina",
+      "teams": [
+        "translators"
+      ],
+      "avatar_url": "https://avatars2.githubusercontent.com/u/25080897?v=4&s=200",
+      "github": "tymosh",
+      "linkedin": "tymosh"
+    },
     "khempenius": {
       "name": "Katie Hempenius",
       "teams": [
@@ -734,6 +762,16 @@
       "website": "https://twitter.com/msakamaki2",
       "github": "MSakamaki",
       "twitter": "msakamaki2"
+    },
+    "soulcorrosion": {
+      "name": "Manuel Garcia",
+      "teams": [
+        "translators"
+      ],
+      "avatar_url": "https://avatars2.githubusercontent.com/u/7148510?v=4&s=200",
+      "github": "soulcorrosion",
+      "linkedin": "manuel-garcia-12b6928",
+      "twitter": "corrosion_pt"
     },
     "mnot": {
       "name": "Mark Nottingham",
